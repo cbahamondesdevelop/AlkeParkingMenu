@@ -33,6 +33,7 @@ class Persona {
 
 var respuesta:String? = ""
 var opcionAUX:Int = 0
+let persona1 = Persona(nombre: "", edad: 0)
 
 repeat {
     
@@ -55,19 +56,25 @@ repeat {
         opcion = "0"
     }
     opcionAUX = Int(opcion) ?? 0
-    let persona1 = Persona(nombre: "", edad: 0)
-    
     
     switch opcionAUX {
         
-    case 1: print("Ingrese Nombre: ")
+    case 1: print("Ingrese Nombre : ")
         let nombreRespuesta:String? = readLine()
         persona1.setNombre(nomb: nombreRespuesta ?? "")
+        
     case 2: print("Ingrese Edad : ")
         let edadRespuesta:String? = readLine()
-        persona1.setEdad(eda: Int(edadRespuesta) ?? 0)
+        if let edadRespuesta = edadRespuesta  {
+            persona1.setEdad(eda: Int(edadRespuesta) ?? 0)
+        }
         
-    default: print("")
+    case 3: print("El nombre es : " + persona1.getNombre())
+    case 4: print("La edad es : " + String(persona1.getEdad()))
+    case 5: let edadAux = String(persona1.getEdad())
+        print("El nombre es: \(persona1.getNombre()) y tiene \(edadAux) años")
+    case 6: print("Cerrando programa")
+    default: print("OPCION INVALIDA")
         
     }
     
